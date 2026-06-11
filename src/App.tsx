@@ -257,7 +257,7 @@ export default function App() {
   const [aiChatHistory, setAiChatHistory] = useState([
     { 
       role: 'assistant', 
-      text: 'Xin chào Ban chỉ đạo Đặc khu Kiên Hải! Tôi là Trợ lý AI Điều Hành DECC. Tôi đã đối soát hoàn chỉnh cả 2 Tầng dữ liệu: Tầng 1 (Chuẩn Phường/Xã 2.0 - DEI 76%) và Tầng 2 (Dữ liệu Web). Sẵn sàng đồng hành cùng lãnh đạo để phân tích mâu thuẫn hệ thống và ra quyết định chính xác nhất.',
+      text: 'Xin chào Ban chỉ đạo Đặc khu Kiên Hải! Tôi là Trợ lý AI Điều Hành DECC. Tôi đã đối soát hoàn chỉnh cả 2 Tầng dữ liệu: Tầng 1 (Chuẩn Phường/Xã 2.0 - DEI 76%) và Tầng 2 (Hệ sinh thái Kinh tế số). Sẵn sàng đồng hành cùng lãnh đạo để phân tích mâu thuẫn hệ thống và ra quyết định chính xác nhất.',
       timestamp: '07:41'
     }
   ]);
@@ -453,7 +453,7 @@ export default function App() {
           {[
             { id: 'tong-quan', label: 'Dashboard Song Song', icon: Layers, subtitle: 'Bộ Chỉ Huy 2 Tầng Tiêu Chí' },
             { id: 'layer-1', label: 'Tầng 1: Chuẩn CĐS 2.0', icon: ShieldCheck, subtitle: `DEI ${activeMetrics.layer1.deiScore}% (Kinh tế & Xã hội)` },
-            { id: 'layer-2', label: 'Tầng 2: Dữ Liệu Web', icon: Building2, subtitle: '5 nhóm A-E khai thác Web' },
+            { id: 'layer-2', label: 'Tầng 2: Hệ sinh thái Kinh tế số', icon: Building2, subtitle: '5 nhóm A-E khai thác từ Nền tảng' },
             { id: 'layer-3', label: 'Tầng 3: Hệ Sinh Thái Tổng', icon: Landmark, subtitle: 'Giáo dục, Y tế, Nông nghiệp' },
             { id: 'layer-4', label: 'Tầng 4: CĐS Doanh Nghiệp', icon: Briefcase, subtitle: 'HKD, SME, Doanh nghiệp AI' },
             { id: 'layer-5', label: 'Tầng 5: O2O & Hub Xanh', icon: Network, subtitle: 'Điểm bán Xanh, Doanh thu' },
@@ -528,33 +528,7 @@ export default function App() {
               <section className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
                 <div className="bg-[#0A2540] border border-cyan-500/20 rounded-2xl p-4 flex flex-col justify-between">
                   <div>
-                    <span className="text-[10px] text-slate-400 font-bold block uppercase tracking-wider">CHỈ SỐ DEI TỔNG HỢP (TẦNG 1)</span>
-                    <div className="flex items-baseline gap-1 mt-2">
-                      <span className="text-3.5xl font-black text-cyan-400 font-mono">{activeMetrics.layer1.deiScore}</span>
-                      <span className="text-sm text-slate-400">/ 100đ</span>
-                    </div>
-                  </div>
-                  <div className="mt-4 pt-2 border-t border-cyan-500/5 flex justify-between text-[11px] text-slate-300">
-                    <span>DN Số: {activeMetrics.layer1.b1.active}</span>
-                    <span>OCOP Số: {activeMetrics.layer1.b2.active}</span>
-                  </div>
-                </div>
-
-                <div className="bg-[#0A2540] border border-cyan-500/20 rounded-2xl p-4 flex flex-col justify-between">
-                  <div>
-                    <span className="text-[10px] text-slate-400 font-bold block uppercase tracking-wider">DOANH THU TMĐT (TẦNG 1)</span>
-                    <div className="flex items-baseline gap-1 mt-2">
-                      <span className="text-3.5xl font-black text-emerald-400 font-mono">{activeMetrics.layer1.b3.revenue} Tỷ</span>
-                    </div>
-                  </div>
-                  <div className="mt-4 pt-2 border-t border-cyan-500/5 flex justify-between text-[11px] text-slate-300">
-                    <span>Đơn hàng: {activeMetrics.layer1.b3.orders.toLocaleString()} đơn</span>
-                  </div>
-                </div>
-
-                <div className="bg-[#0A2540] border border-cyan-500/20 rounded-2xl p-4 flex flex-col justify-between">
-                  <div>
-                    <span className="text-[10px] text-slate-400 font-bold block uppercase tracking-wider">HẠ TẦNG DN SỐ (TẦNG 2 WEB)</span>
+                    <span className="text-[10px] text-slate-400 font-bold block uppercase tracking-wider">HẠ TẦNG DN SỐ (TẦNG 2 HST)</span>
                     <div className="flex items-baseline gap-1 mt-2">
                       <span className="text-3.5xl font-black text-indigo-400 font-mono">{activeMetrics.layer2.nhomA.digitalEnterprises.year}</span>
                       <span className="text-sm text-slate-400">DN Lũy kế</span>
@@ -568,7 +542,7 @@ export default function App() {
 
                 <div className="bg-[#0A2540] border border-cyan-500/20 rounded-2xl p-4 flex flex-col justify-between">
                   <div>
-                    <span className="text-[10px] text-slate-400 font-bold block uppercase tracking-wider">ĐÀO TẠO NGUỒN LỰC (TẦNG 2 WEB)</span>
+                    <span className="text-[10px] text-slate-400 font-bold block uppercase tracking-wider">ĐÀO TẠO NGUỒN LỰC (TẦNG 2 HST)</span>
                     <div className="flex items-baseline gap-1 mt-2">
                       <span className="text-3.5xl font-black text-amber-400 font-mono">{activeMetrics.layer2.nhomC.trainingCourses.year}</span>
                       <span className="text-xs text-slate-400">Khóa Lũy kế</span>
@@ -686,45 +660,103 @@ export default function App() {
                 {/* B1. DOANH NGHIỆP SỐ HÓA */}
                 <div className="bg-[#0A2540] border border-cyan-500/15 rounded-3xl p-5 flex flex-col justify-between">
                   <div className="border-b border-cyan-500/10 pb-3 mb-4 flex items-center justify-between">
-                    <span className="text-sm font-bold text-cyan-400 flex items-center gap-2"><Building2 className="h-5 w-5" /> B1. DOANH NGHIỆP SỐ HÓA</span>
+                    <span className="text-sm font-bold text-cyan-400 flex items-center gap-2"><Building2 className="h-5 w-5" /> B1. DOANH NGHIỆP SỐ HÓA TRÊN ĐỊA BÀN</span>
                     <span className="text-[11px] bg-emerald-500/10 text-emerald-400 px-2 py-0.5 rounded font-mono font-bold">Tỷ lệ: {((activeMetrics.layer1.b1.active / activeMetrics.layer1.b1.total) * 100).toFixed(0)}%</span>
                   </div>
-                  <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-4 text-center">
-                    <div className="bg-[#122A4E]/30 p-2 rounded-xl"><span className="text-[10px] text-slate-400 block">Tổng DN</span><strong className="text-lg font-mono text-white">{activeMetrics.layer1.b1.total}</strong></div>
-                    <div className="bg-[#122A4E]/30 p-2 rounded-xl"><span className="text-[10px] text-slate-400 block">Đã số hóa</span><strong className="text-lg font-mono text-emerald-400">{activeMetrics.layer1.b1.active}</strong></div>
-                    <div className="bg-[#122A4E]/30 p-2 rounded-xl"><span className="text-[10px] text-slate-400 block">Cloud</span><strong className="text-lg font-mono text-cyan-300">{activeMetrics.layer1.b1.cloud}</strong></div>
-                    <div className="bg-[#122A4E]/30 p-2 rounded-xl"><span className="text-[10px] text-slate-400 block">Hệ ERP</span><strong className="text-lg font-mono text-indigo-400">{activeMetrics.layer1.b1.erp}</strong></div>
+                  <div className="grid grid-cols-4 gap-3 mb-4 text-center">
+                    <div className="bg-[#122A4E]/30 p-3 rounded-xl border border-cyan-500/5"><span className="text-[10px] text-slate-400 block mb-1">Tổng số DN</span><strong className="text-xl font-mono text-white">{activeMetrics.layer1.b1.total}</strong></div>
+                    <div className="bg-[#122A4E]/30 p-3 rounded-xl border border-cyan-500/5"><span className="text-[10px] text-slate-400 block mb-1">Đã số hóa</span><strong className="text-xl font-mono text-emerald-400">{activeMetrics.layer1.b1.active}</strong></div>
+                    <div className="bg-[#122A4E]/30 p-3 rounded-xl border border-cyan-500/5"><span className="text-[10px] text-slate-400 block mb-1">Hạ tầng Cloud</span><strong className="text-xl font-mono text-cyan-300">{activeMetrics.layer1.b1.cloud}</strong></div>
+                    <div className="bg-[#122A4E]/30 p-3 rounded-xl border border-cyan-500/5"><span className="text-[10px] text-slate-400 block mb-1">Hệ quản trị ERP</span><strong className="text-xl font-mono text-indigo-400">{activeMetrics.layer1.b1.erp}</strong></div>
+                  </div>
+
+                  {/* Phễu CĐS */}
+                  <div className="mt-2 bg-[#122A4E]/20 p-4 rounded-xl border border-cyan-500/5">
+                    <span className="text-[10px] text-slate-400 font-bold block uppercase mb-3">PHỄU CHUYỂN ĐỔI SỐ HOẠT ĐỘNG (CĐS FUNNEL):</span>
+                    <div className="space-y-3">
+                      {[
+                        { label: 'Định danh số (Website)', val: activeMetrics.layer1.b1.active, max: activeMetrics.layer1.b1.total, color: 'bg-cyan-600' },
+                        { label: 'Hạ tầng đám mây', val: activeMetrics.layer1.b1.cloud, max: activeMetrics.layer1.b1.total, color: 'bg-emerald-700' },
+                        { label: 'Hoạch định tài nguyên (ERP)', val: activeMetrics.layer1.b1.erp, max: activeMetrics.layer1.b1.total, color: 'bg-indigo-600' },
+                        { label: 'Ứng dụng AI', val: activeMetrics.layer1.b1.ai, max: activeMetrics.layer1.b1.total, color: 'bg-purple-800' }
+                      ].map((item, idx) => (
+                        <div key={idx} className="flex items-center gap-3">
+                          <span className="w-44 text-xs text-slate-300">{item.label}</span>
+                          <div className="flex-1 bg-[#07111F] h-4 rounded-sm overflow-hidden">
+                            <div className={`h-full ${item.color} rounded-sm`} style={{ width: `${(item.val / item.max) * 100}%` }}></div>
+                          </div>
+                          <span className="text-[10px] font-mono text-white bg-[#0A2540] border border-cyan-500/20 px-1.5 py-0.5 rounded w-14 text-center">{item.val} DN</span>
+                        </div>
+                      ))}
+                    </div>
                   </div>
                 </div>
 
                 {/* B2. SẢN PHẨM OCOP */}
                 <div className="bg-[#0A2540] border border-cyan-500/15 rounded-3xl p-5 flex flex-col justify-between">
                   <div className="border-b border-cyan-500/10 pb-3 mb-4 flex items-center justify-between">
-                    <span className="text-sm font-bold text-cyan-400 flex items-center gap-2"><Award className="h-5 w-5" /> B2. SẢN PHẨM OCOP SỐ HÓA</span>
+                    <span className="text-sm font-bold text-cyan-400 flex items-center gap-2"><Award className="h-5 w-5" /> B2. SẢN PHẨM OCOP & ĐẶC SẢN ĐỊA PHƯƠNG SỐ HÓA</span>
                     <span className="text-[11px] bg-indigo-500/10 text-indigo-400 px-2 py-0.5 rounded font-mono font-bold">Tỷ lệ: {((activeMetrics.layer1.b2.active / activeMetrics.layer1.b2.total) * 100).toFixed(0)}%</span>
                   </div>
-                  <div className="grid grid-cols-5 gap-1.5 text-center mb-4">
-                    <div className="bg-[#122A4E]/30 p-2 rounded-xl"><span className="text-[9px] text-slate-400 block">Tổng SP</span><strong className="text-sm font-mono text-white">{activeMetrics.layer1.b2.total}</strong></div>
-                    <div className="bg-[#122A4E]/30 p-2 rounded-xl"><span className="text-[9px] text-slate-400 block">Số hóa</span><strong className="text-sm font-mono text-cyan-400">{activeMetrics.layer1.b2.active}</strong></div>
-                    <div className="bg-[#122A4E]/30 p-2 rounded-xl"><span className="text-[9px] text-slate-400 block">Lên sàn</span><strong className="text-sm font-mono text-emerald-400">{activeMetrics.layer1.b2.ecom}</strong></div>
-                    <div className="bg-[#122A4E]/30 p-2 rounded-xl"><span className="text-[9px] text-slate-400 block">Mã QR</span><strong className="text-sm font-mono text-indigo-400">{activeMetrics.layer1.b2.qr}</strong></div>
-                    <div className="bg-[#122A4E]/30 p-2 rounded-xl"><span className="text-[9px] text-slate-400 block">Xuất khẩu</span><strong className="text-sm font-mono text-purple-400">{activeMetrics.layer1.b2.export}</strong></div>
+                  <div className="grid grid-cols-5 gap-2 text-center mb-4">
+                    <div className="bg-[#122A4E]/30 p-3 rounded-xl border border-cyan-500/5"><span className="text-[10px] text-slate-400 block mb-1">Tổng số SP</span><strong className="text-sm sm:text-base font-mono text-white">{activeMetrics.layer1.b2.total}</strong></div>
+                    <div className="bg-[#122A4E]/30 p-3 rounded-xl border border-cyan-500/5"><span className="text-[10px] text-slate-400 block mb-1">Số hóa</span><strong className="text-sm sm:text-base font-mono text-cyan-400">{activeMetrics.layer1.b2.active}</strong></div>
+                    <div className="bg-[#122A4E]/30 p-3 rounded-xl border border-cyan-500/5"><span className="text-[10px] text-slate-400 block mb-1">Lên sàn</span><strong className="text-sm sm:text-base font-mono text-emerald-400">{activeMetrics.layer1.b2.ecom}</strong></div>
+                    <div className="bg-[#122A4E]/30 p-3 rounded-xl border border-cyan-500/5"><span className="text-[10px] text-slate-400 block mb-1">Mã QR</span><strong className="text-sm sm:text-base font-mono text-indigo-400">{activeMetrics.layer1.b2.qr}</strong></div>
+                    <div className="bg-[#122A4E]/30 p-3 rounded-xl border border-cyan-500/5"><span className="text-[10px] text-slate-400 block mb-1">Xuất khẩu</span><strong className="text-sm sm:text-base font-mono text-purple-400">{activeMetrics.layer1.b2.export}</strong></div>
+                  </div>
+
+                  {/* Bản đồ OCOP */}
+                  <div className="mt-2 bg-[#122A4E]/20 p-4 rounded-xl border border-cyan-500/5 flex-1 flex flex-col">
+                    <span className="text-[10px] text-slate-400 font-bold block uppercase mb-3">BẢN ĐỒ OCOP VÀ CHỈ ĐỊNH VỊ TRÍ ĐỊNH DANH:</span>
+                    <div className="relative w-full flex-1 min-h-[140px] bg-[#07111F]/50 rounded-lg border border-cyan-500/10 overflow-hidden flex items-center justify-center">
+                       {/* Abstract Map Nodes */}
+                       <div className="absolute top-[40%] left-[30%] flex items-center gap-1.5 animate-pulse">
+                         <div className="w-2.5 h-2.5 rounded-full bg-rose-500 shadow-[0_0_8px_rgba(244,63,94,0.8)]"></div>
+                         <span className="text-[10px] font-bold text-white drop-shadow-md">Xoài Cát Hòn Tre</span>
+                       </div>
+                       <div className="absolute top-[65%] left-[60%] flex items-center gap-1.5 animate-pulse delay-700">
+                         <div className="w-2.5 h-2.5 rounded-full bg-emerald-500 shadow-[0_0_8px_rgba(16,185,129,0.8)]"></div>
+                         <span className="text-[10px] font-bold text-white drop-shadow-md">Nước mắm cá cơm Lại Sơn</span>
+                       </div>
+                       <div className="absolute top-[25%] left-[75%] flex items-center gap-1.5 animate-pulse delay-300">
+                         <div className="w-2.5 h-2.5 rounded-full bg-amber-500 shadow-[0_0_8px_rgba(245,158,11,0.8)]"></div>
+                         <span className="text-[10px] font-bold text-white drop-shadow-md">Chả cá Nam Du</span>
+                       </div>
+                    </div>
                   </div>
                 </div>
 
                 {/* B3. TMĐT */}
                 <div className="bg-[#0A2540] border border-cyan-500/15 rounded-3xl p-5 flex flex-col justify-between">
                   <div className="border-b border-cyan-500/10 pb-3 mb-4 flex items-center justify-between">
-                    <span className="text-sm font-bold text-cyan-400 flex items-center gap-2"><ShoppingBag className="h-5 w-5" /> B3. DOANH THU TMĐT</span>
+                    <span className="text-sm font-bold text-cyan-400 flex items-center gap-2"><ShoppingBag className="h-5 w-5" /> B3. THƯƠNG MẠI ĐIỆN TỬ & KHÁCH HÀNG</span>
                   </div>
                   <div className="grid grid-cols-2 gap-3 mb-4 text-center">
-                    <div className="bg-[#122A4E]/30 p-3 rounded-2xl">
+                    <div className="bg-[#122A4E]/30 p-4 rounded-2xl border border-cyan-500/5">
                       <span className="text-xs text-slate-400">Doanh thu giao thương</span>
-                      <strong className="text-2xl font-mono font-black text-emerald-400 block mt-1">{activeMetrics.layer1.b3.revenue} Tỷ</strong>
+                      <strong className="text-3xl font-mono font-black text-emerald-400 block mt-2">{activeMetrics.layer1.b3.revenue} Tỷ</strong>
                     </div>
-                    <div className="bg-[#122A4E]/30 p-3 rounded-2xl">
+                    <div className="bg-[#122A4E]/30 p-4 rounded-2xl border border-cyan-500/5">
                       <span className="text-xs text-slate-400">Đơn hàng hoàn tất</span>
-                      <strong className="text-2xl font-mono font-black text-white block mt-1">{activeMetrics.layer1.b3.orders.toLocaleString()} đơn</strong>
+                      <strong className="text-3xl font-mono font-black text-white block mt-2">{activeMetrics.layer1.b3.orders.toLocaleString()}</strong>
+                    </div>
+                  </div>
+                  <div className="mt-2 bg-[#122A4E]/20 p-4 rounded-xl border border-cyan-500/5">
+                    <span className="text-[10px] text-slate-400 font-bold block uppercase mb-3">CHỈ SỐ TĂNG TRƯỞNG & ĐỘ BẢO LƯU:</span>
+                    <div className="grid grid-cols-3 gap-2">
+                      <div className="text-center bg-[#07111F]/50 border border-cyan-500/10 p-3 rounded-lg">
+                        <span className="block text-[9px] text-slate-400 mb-1">Khách hàng mới</span>
+                        <strong className="text-sm sm:text-base text-cyan-400 font-mono">+{activeMetrics.layer1.b3.newCustomers.toLocaleString()}</strong>
+                      </div>
+                      <div className="text-center bg-[#07111F]/50 border border-cyan-500/10 p-3 rounded-lg">
+                        <span className="block text-[9px] text-slate-400 mb-1">Tỷ lệ mua lặp lại</span>
+                        <strong className="text-sm sm:text-base text-emerald-400 font-mono">{activeMetrics.layer1.b3.repeatRatio}%</strong>
+                      </div>
+                      <div className="text-center bg-[#07111F]/50 border border-cyan-500/10 p-3 rounded-lg">
+                        <span className="block text-[9px] text-slate-400 mb-1">Giá trị trung bình/Đơn</span>
+                        <strong className="text-sm sm:text-base text-indigo-400 font-mono">{activeMetrics.layer1.b3.averageValue} Tr</strong>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -732,63 +764,142 @@ export default function App() {
                 {/* B4. THANH TOÁN */}
                 <div className="bg-[#0A2540] border border-cyan-500/15 rounded-3xl p-5 flex flex-col justify-between">
                   <div className="border-b border-cyan-500/10 pb-3 mb-4 flex items-center justify-between">
-                    <span className="text-sm font-bold text-cyan-400 flex items-center gap-2"><CreditCard className="h-5 w-5" /> B4. THANH TOÁN SỐ</span>
-                    <span className="text-[11px] bg-cyan-500/10 text-cyan-400 px-2 py-0.5 rounded font-mono font-bold">{activeMetrics.layer1.b4.ratio}%</span>
+                    <span className="text-sm font-bold text-cyan-400 flex items-center gap-2"><CreditCard className="h-5 w-5" /> B4. HẠ TẦNG THANH TOÁN SỐ (KTM)</span>
+                    <span className="text-[11px] bg-cyan-500/10 text-cyan-400 px-2 py-0.5 rounded font-mono font-bold">Độ phủ: {activeMetrics.layer1.b4.ratio}%</span>
                   </div>
-                  <div className="grid grid-cols-4 gap-2 text-xs text-center">
-                    <div className="bg-[#122A4E]/20 p-3 rounded"><span className="text-[9px] text-slate-400 block">QR Pay</span><strong className="font-mono text-cyan-300">{activeMetrics.layer1.b4.qrPay}%</strong></div>
-                    <div className="bg-[#122A4E]/20 p-3 rounded"><span className="text-[9px] text-slate-400 block">Mobile</span><strong className="font-mono text-cyan-300">{activeMetrics.layer1.b4.mobileBank}%</strong></div>
-                    <div className="bg-[#122A4E]/20 p-3 rounded"><span className="text-[9px] text-slate-400 block">Ví ĐT</span><strong className="font-mono text-cyan-300">{activeMetrics.layer1.b4.eWallet}%</strong></div>
-                    <div className="bg-[#122A4E]/20 p-3 rounded"><span className="text-[9px] text-slate-400 block">POS</span><strong className="font-mono text-cyan-300">{activeMetrics.layer1.b4.pos}%</strong></div>
+                  
+                  <div className="mb-5">
+                     <div className="flex items-center justify-between text-[10px] text-slate-400 mb-3 font-bold uppercase">
+                        <span>Phân bổ phương thức thanh toán:</span>
+                     </div>
+                     <div className="w-full h-8 bg-[#07111F] rounded-md overflow-hidden flex shadow-inner border border-cyan-500/10">
+                        <div className="bg-cyan-500 h-full flex items-center justify-center text-[9px] font-bold text-slate-900" style={{width: `${activeMetrics.layer1.b4.qrPay}%`}}>QR {activeMetrics.layer1.b4.qrPay}%</div>
+                        <div className="bg-emerald-500 h-full flex items-center justify-center text-[9px] font-bold text-slate-900" style={{width: `${activeMetrics.layer1.b4.mobileBank}%`}}>Mobile {activeMetrics.layer1.b4.mobileBank}%</div>
+                        <div className="bg-indigo-500 h-full flex items-center justify-center text-[9px] font-bold text-white" style={{width: `${activeMetrics.layer1.b4.eWallet}%`}}>Ví ĐT {activeMetrics.layer1.b4.eWallet}%</div>
+                        <div className="bg-rose-500 h-full flex items-center justify-center text-[9px] font-bold text-white" style={{width: `${activeMetrics.layer1.b4.pos}%`}}>POS {activeMetrics.layer1.b4.pos}%</div>
+                     </div>
+                  </div>
+
+                  <div className="grid grid-cols-4 gap-2 text-xs text-center mt-auto">
+                    <div className="bg-[#122A4E]/30 p-3 rounded-xl border border-cyan-500/5"><span className="text-[9px] text-slate-400 block mb-1">Mã QR Pay</span><strong className="font-mono text-cyan-300 text-sm sm:text-base block">{activeMetrics.layer1.b4.qrPay}%</strong></div>
+                    <div className="bg-[#122A4E]/30 p-3 rounded-xl border border-cyan-500/5"><span className="text-[9px] text-slate-400 block mb-1">Internet Banking</span><strong className="font-mono text-emerald-400 text-sm sm:text-base block">{activeMetrics.layer1.b4.mobileBank}%</strong></div>
+                    <div className="bg-[#122A4E]/30 p-3 rounded-xl border border-cyan-500/5"><span className="text-[9px] text-slate-400 block mb-1">Ví Điện Tử</span><strong className="font-mono text-indigo-400 text-sm sm:text-base block">{activeMetrics.layer1.b4.eWallet}%</strong></div>
+                    <div className="bg-[#122A4E]/30 p-3 rounded-xl border border-cyan-500/5"><span className="text-[9px] text-slate-400 block mb-1">Máy quẹt POS</span><strong className="font-mono text-rose-400 text-sm sm:text-base block">{activeMetrics.layer1.b4.pos}%</strong></div>
                   </div>
                 </div>
 
                 {/* B5. HỘ KINH DOANH */}
                 <div className="bg-[#0A2540] border border-cyan-500/15 rounded-3xl p-5 flex flex-col justify-between">
                   <div className="border-b border-cyan-500/10 pb-3 mb-4 flex items-center justify-between">
-                    <span className="text-sm font-bold text-cyan-400 flex items-center gap-2"><Users className="h-5 w-5" /> B5. HỘ KINH DOANH SỐ</span>
+                    <span className="text-sm font-bold text-cyan-400 flex items-center gap-2"><Users className="h-5 w-5" /> B5. PHÂN LỚP HỘ KINH DOANH SỐ</span>
                   </div>
                   <div className="grid grid-cols-2 gap-3 mb-4 text-center">
-                    <div className="bg-[#122A4E]/30 p-2.5 rounded-xl"><span className="text-xs text-slate-400 block">Tổng số hộ khảo sát</span><strong className="text-xl font-mono text-white">{activeMetrics.layer1.b5.total.toLocaleString()}</strong></div>
-                    <div className="bg-[#122A4E]/30 p-2.5 rounded-xl"><span className="text-xs text-slate-400 block">Hộ kinh doanh số</span><strong className="text-xl font-mono text-rose-400">{activeMetrics.layer1.b5.active}</strong></div>
+                    <div className="bg-[#122A4E]/30 p-4 rounded-2xl border border-cyan-500/5"><span className="text-xs text-slate-400 block mb-1">Tổng số hộ khảo sát</span><strong className="text-3xl font-mono text-white block mt-1">{activeMetrics.layer1.b5.total.toLocaleString()}</strong></div>
+                    <div className="bg-[#122A4E]/30 p-4 rounded-2xl border border-cyan-500/5"><span className="text-xs text-slate-400 block mb-1">Hộ có hoạt động CĐS</span><strong className="text-3xl font-mono text-emerald-400 block mt-1">{activeMetrics.layer1.b5.active}</strong></div>
+                  </div>
+
+                  <div className="mt-2 bg-[#122A4E]/20 p-4 rounded-xl border border-cyan-500/5">
+                    <span className="text-[10px] text-slate-400 font-bold block uppercase mb-4">CHI TIẾT PHÂN LỚP NĂNG LỰC SỐ (LEVELS):</span>
+                    <div className="space-y-3">
+                      {[
+                        { label: 'Mức 1: Có tài khoản MXH', val: activeMetrics.layer1.b5.levels[0], max: activeMetrics.layer1.b5.active, color: 'bg-slate-400' },
+                        { label: 'Mức 2: Nhận thanh toán QR', val: activeMetrics.layer1.b5.levels[1], max: activeMetrics.layer1.b5.active, color: 'bg-cyan-500' },
+                        { label: 'Mức 3: Đăng ký SP OCOP', val: activeMetrics.layer1.b5.levels[2], max: activeMetrics.layer1.b5.active, color: 'bg-emerald-500' },
+                        { label: 'Mức 4: Bán hàng TMĐT', val: activeMetrics.layer1.b5.levels[3], max: activeMetrics.layer1.b5.active, color: 'bg-indigo-500' },
+                        { label: 'Mức 5: Dùng phần mềm Kế toán', val: activeMetrics.layer1.b5.levels[4], max: activeMetrics.layer1.b5.active, color: 'bg-purple-500' }
+                      ].map((item, idx) => (
+                        <div key={idx} className="flex items-center gap-3">
+                          <span className="w-48 text-xs text-slate-300">{item.label}</span>
+                          <div className="flex-1 bg-[#07111F] h-2.5 rounded-full overflow-hidden border border-cyan-500/5">
+                            <div className={`h-full ${item.color} rounded-full`} style={{ width: `${(item.val / item.max) * 100}%` }}></div>
+                          </div>
+                          <span className="text-[10px] font-mono text-white w-10 text-right">{item.val}</span>
+                        </div>
+                      ))}
+                    </div>
                   </div>
                 </div>
 
                 {/* B6. DU LỊCH */}
                 <div className="bg-[#0A2540] border border-cyan-500/15 rounded-3xl p-5 flex flex-col justify-between">
                   <div className="border-b border-cyan-500/10 pb-3 mb-4 flex items-center justify-between">
-                    <span className="text-sm font-bold text-cyan-400 flex items-center gap-2"><Globe className="h-5 w-5" /> B6. DU LỊCH LỮ HÀNH SỐ</span>
+                    <span className="text-sm font-bold text-cyan-400 flex items-center gap-2"><Globe className="h-5 w-5" /> B6. CHUYỂN ĐỔI SỐ DU LỊCH LỮ HÀNH</span>
                   </div>
                   <div className="grid grid-cols-3 gap-3 mb-4 text-center">
-                    <div className="bg-[#122A4E]/30 p-3 rounded-xl"><span className="text-[10px] text-slate-400 block">Điểm lữ hành</span><strong className="text-lg font-mono text-purple-300">{activeMetrics.layer1.b6.ratio}%</strong></div>
-                    <div className="bg-[#122A4E]/30 p-3 rounded-xl"><span className="text-[10px] text-slate-400 block">Khách online</span><strong className="text-lg font-mono text-white">{activeMetrics.layer1.b6.onlineGuests.toLocaleString()}</strong></div>
-                    <div className="bg-[#122A4E]/30 p-3 rounded-xl"><span className="text-[10px] text-slate-400 block">Doanh thu ĐT</span><strong className="text-lg font-mono text-emerald-400">{activeMetrics.layer1.b6.revenue} Tỷ</strong></div>
+                    <div className="bg-[#122A4E]/30 p-4 rounded-2xl border border-cyan-500/5"><span className="text-[10px] sm:text-xs text-slate-400 block mb-2">Điểm du lịch số hóa</span><strong className="text-2xl font-mono text-cyan-400 block">{activeMetrics.layer1.b6.ratio}%</strong></div>
+                    <div className="bg-[#122A4E]/30 p-4 rounded-2xl border border-cyan-500/5"><span className="text-[10px] sm:text-xs text-slate-400 block mb-2">Khách đặt tour Online</span><strong className="text-2xl font-mono text-white block">{activeMetrics.layer1.b6.onlineGuests.toLocaleString()}</strong></div>
+                    <div className="bg-[#122A4E]/30 p-4 rounded-2xl border border-cyan-500/5"><span className="text-[10px] sm:text-xs text-slate-400 block mb-2">Doanh thu lữ hành ĐT</span><strong className="text-2xl font-mono text-emerald-400 block">{activeMetrics.layer1.b6.revenue} Tỷ</strong></div>
+                  </div>
+                  <div className="mt-2 bg-[#122A4E]/20 p-5 rounded-xl border border-cyan-500/5 flex items-center gap-4">
+                     <div className="flex-1">
+                        <span className="text-xs text-slate-400 font-bold block uppercase mb-1">Đánh giá hệ thống tương tác:</span>
+                        <p className="text-xs text-slate-300 leading-relaxed mt-2">Hơn {activeMetrics.layer1.b6.ratio}% các khu nghỉ dưỡng đã áp dụng check-in sinh trắc học và hệ thống chăm sóc khách tự động qua Zalo OA, giúp giảm 30% thời gian chờ.</p>
+                     </div>
+                     <div className="w-16 h-16 rounded-full border-[6px] border-cyan-500/30 flex items-center justify-center shrink-0">
+                        <span className="text-sm font-black text-cyan-400">TỐT</span>
+                     </div>
                   </div>
                 </div>
 
                 {/* B7. NÔNG NGHIỆP */}
                 <div className="bg-[#0A2540] border border-cyan-500/15 rounded-3xl p-5 flex flex-col justify-between">
                   <div className="border-b border-cyan-500/10 pb-3 mb-4 flex items-center justify-between">
-                    <span className="text-sm font-bold text-cyan-400 flex items-center gap-2"><Sprout className="h-5 w-5" /> B7. NÔNG NGHIỆP SỐ</span>
+                    <span className="text-sm font-bold text-cyan-400 flex items-center gap-2"><Sprout className="h-5 w-5" /> B7. NÔNG NGHIỆP THÔNG MINH & TRUY XUẤT</span>
                   </div>
-                  <div className="grid grid-cols-4 gap-2 text-center mb-4">
-                    <div className="bg-[#122A4E]/20 p-2.5 rounded"><span className="text-[9px] text-slate-400 block">Vùng trồng</span><strong className="font-mono text-white text-sm">{activeMetrics.layer1.b7.farmRatio}%</strong></div>
-                    <div className="bg-[#122A4E]/20 p-2.5 rounded"><span className="text-[9px] text-slate-400 block">Truy xuất</span><strong className="font-mono text-emerald-400 text-sm">{activeMetrics.layer1.b7.qrTrace}%</strong></div>
-                    <div className="bg-[#122A4E]/20 p-2.5 rounded"><span className="text-[9px] text-slate-400 block">IoT Farm</span><strong className="font-mono text-cyan-300 text-sm">{activeMetrics.layer1.b7.iotFarm}%</strong></div>
-                    <div className="bg-[#122A4E]/20 p-2.5 rounded"><span className="text-[9px] text-slate-400 block">Lên sàn</span><strong className="font-mono text-indigo-300 text-sm">{activeMetrics.layer1.b7.ecomAgri}%</strong></div>
+                  <div className="grid grid-cols-4 gap-4 text-center mb-4">
+                    <div className="flex flex-col items-center">
+                       <div className="w-full bg-[#122A4E]/30 h-28 rounded-lg flex items-end justify-center p-1.5 border border-cyan-500/10 mb-3 relative overflow-hidden group">
+                           <div className="w-full bg-emerald-500/80 rounded-md transition-all group-hover:bg-emerald-400" style={{height: `${activeMetrics.layer1.b7.farmRatio}%`}}></div>
+                       </div>
+                       <strong className="font-mono text-white text-base">{activeMetrics.layer1.b7.farmRatio}%</strong>
+                       <span className="text-[10px] text-slate-400 block mt-1">Vùng trồng Xanh</span>
+                    </div>
+                    <div className="flex flex-col items-center">
+                       <div className="w-full bg-[#122A4E]/30 h-28 rounded-lg flex items-end justify-center p-1.5 border border-cyan-500/10 mb-3 relative overflow-hidden group">
+                           <div className="w-full bg-cyan-500/80 rounded-md transition-all group-hover:bg-cyan-400" style={{height: `${activeMetrics.layer1.b7.qrTrace}%`}}></div>
+                       </div>
+                       <strong className="font-mono text-cyan-300 text-base">{activeMetrics.layer1.b7.qrTrace}%</strong>
+                       <span className="text-[10px] text-slate-400 block mt-1">Truy xuất QR</span>
+                    </div>
+                    <div className="flex flex-col items-center">
+                       <div className="w-full bg-[#122A4E]/30 h-28 rounded-lg flex items-end justify-center p-1.5 border border-cyan-500/10 mb-3 relative overflow-hidden group">
+                           <div className="w-full bg-indigo-500/80 rounded-md transition-all group-hover:bg-indigo-400" style={{height: `${activeMetrics.layer1.b7.iotFarm}%`}}></div>
+                       </div>
+                       <strong className="font-mono text-indigo-300 text-base">{activeMetrics.layer1.b7.iotFarm}%</strong>
+                       <span className="text-[10px] text-slate-400 block mt-1">Cảm biến IoT</span>
+                    </div>
+                    <div className="flex flex-col items-center">
+                       <div className="w-full bg-[#122A4E]/30 h-28 rounded-lg flex items-end justify-center p-1.5 border border-cyan-500/10 mb-3 relative overflow-hidden group">
+                           <div className="w-full bg-amber-500/80 rounded-md transition-all group-hover:bg-amber-400" style={{height: `${activeMetrics.layer1.b7.ecomAgri}%`}}></div>
+                       </div>
+                       <strong className="font-mono text-amber-300 text-base">{activeMetrics.layer1.b7.ecomAgri}%</strong>
+                       <span className="text-[10px] text-slate-400 block mt-1">Lên sàn TMĐT</span>
+                    </div>
                   </div>
                 </div>
 
                 {/* B8. KHỞI NGHIỆP */}
                 <div className="bg-[#0A2540] border border-cyan-500/15 rounded-3xl p-5 flex flex-col justify-between">
                   <div className="border-b border-cyan-500/10 pb-3 mb-4 flex items-center justify-between">
-                    <span className="text-sm font-bold text-cyan-400 flex items-center gap-2"><Compass className="h-5 w-5" /> B8. ĐỔI MỚI SÁNG TẠO</span>
+                    <span className="text-sm font-bold text-cyan-400 flex items-center gap-2"><Compass className="h-5 w-5" /> B8. ĐỔI MỚI SÁNG TẠO & KHỞI NGHIỆP</span>
                   </div>
-                  <div className="grid grid-cols-4 gap-2 text-center">
-                    <div className="bg-[#122A4E]/30 p-2 rounded-xl"><span className="text-[9px] text-slate-400 block">Startup</span><strong className="text-base font-mono text-white">{activeMetrics.layer1.b8.startups}</strong></div>
-                    <div className="bg-[#122A4E]/30 p-2 rounded-xl"><span className="text-[9px] text-slate-400 block">Dự án ươm</span><strong className="text-base font-mono text-cyan-400">{activeMetrics.layer1.b8.projects}</strong></div>
-                    <div className="bg-[#122A4E]/30 p-2 rounded-xl"><span className="text-[9px] text-slate-400 block">Chuyên gia</span><strong className="text-base font-mono text-emerald-400">{activeMetrics.layer1.b8.mentors}</strong></div>
-                    <div className="bg-[#122A4E]/30 p-2 rounded-xl"><span className="text-[9px] text-slate-400 block">Nhà ĐT</span><strong className="text-base font-mono text-indigo-400">{activeMetrics.layer1.b8.investors}</strong></div>
+                  <div className="grid grid-cols-4 gap-3 text-center mb-4">
+                    <div className="bg-[#122A4E]/30 p-3 rounded-xl border border-cyan-500/5"><span className="text-[10px] text-slate-400 block mb-1">Startup</span><strong className="text-xl sm:text-2xl font-mono text-white block">{activeMetrics.layer1.b8.startups}</strong></div>
+                    <div className="bg-[#122A4E]/30 p-3 rounded-xl border border-cyan-500/5"><span className="text-[10px] text-slate-400 block mb-1">Dự án ươm</span><strong className="text-xl sm:text-2xl font-mono text-cyan-400 block">{activeMetrics.layer1.b8.projects}</strong></div>
+                    <div className="bg-[#122A4E]/30 p-3 rounded-xl border border-cyan-500/5"><span className="text-[10px] text-slate-400 block mb-1">Chuyên gia</span><strong className="text-xl sm:text-2xl font-mono text-emerald-400 block">{activeMetrics.layer1.b8.mentors}</strong></div>
+                    <div className="bg-[#122A4E]/30 p-3 rounded-xl border border-cyan-500/5"><span className="text-[10px] text-slate-400 block mb-1">Nhà ĐT</span><strong className="text-xl sm:text-2xl font-mono text-indigo-400 block">{activeMetrics.layer1.b8.investors}</strong></div>
+                  </div>
+                  <div className="mt-2 bg-[#122A4E]/20 p-4 rounded-xl border border-cyan-500/5">
+                    <span className="text-[10px] text-slate-400 font-bold block uppercase mb-4">HIỆU QUẢ KẾT NỐI HỆ SINH THÁI:</span>
+                    <div className="flex items-center justify-between text-xs text-slate-300">
+                       <div className="flex flex-col items-center gap-2"><div className="w-8 h-8 rounded-full bg-cyan-500/20 text-cyan-400 flex items-center justify-center font-bold">1</div><span className="text-[10px] font-bold">Ý tưởng</span></div>
+                       <div className="flex-1 h-px bg-cyan-500/30 mx-2"></div>
+                       <div className="flex flex-col items-center gap-2"><div className="w-8 h-8 rounded-full bg-emerald-500/20 text-emerald-400 flex items-center justify-center font-bold">2</div><span className="text-[10px] font-bold">Ươm tạo</span></div>
+                       <div className="flex-1 h-px bg-cyan-500/30 mx-2"></div>
+                       <div className="flex flex-col items-center gap-2"><div className="w-8 h-8 rounded-full bg-indigo-500/20 text-indigo-400 flex items-center justify-center font-bold">3</div><span className="text-[10px] font-bold">Gọi vốn</span></div>
+                       <div className="flex-1 h-px bg-cyan-500/30 mx-2"></div>
+                       <div className="flex flex-col items-center gap-2"><div className="w-8 h-8 rounded-full bg-purple-500/20 text-purple-400 flex items-center justify-center font-bold">4</div><span className="text-[10px] font-bold">Thương mại</span></div>
+                    </div>
                   </div>
                 </div>
 
