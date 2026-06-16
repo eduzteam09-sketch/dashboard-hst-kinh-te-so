@@ -113,7 +113,7 @@ const INITIAL_PERIODIC_DATA = {
 };
 
 export default function App() {
-  const [activeTab, setActiveTab] = useState('tong-quan'); 
+  const [activeTab, setActiveTab] = useState('layer-1'); 
   const [activeSubAE, setActiveSubAE] = useState('ALL'); 
   const [selectedPeriod, setSelectedPeriod] = useState('T05/2026'); 
   const [selectedZone, setSelectedZone] = useState(null); 
@@ -398,9 +398,6 @@ export default function App() {
               <span className="text-[10px] bg-cyan-500/20 text-cyan-400 border border-cyan-500/30 px-2.5 py-0.5 rounded-full font-bold uppercase tracking-wider flex items-center gap-1">
                 <span className="h-1.5 w-1.5 rounded-full bg-cyan-400"></span> ĐẶC KHU KIÊN HẢI - DECC COCKPIT
               </span>
-              <span className="text-[10px] bg-indigo-500/10 text-indigo-400 border border-indigo-500/20 px-2 py-0.5 rounded-full font-bold">
-                Mô hình Song song Quốc gia & Nền tảng Web
-              </span>
             </div>
             <h1 className="text-xl md:text-2xl font-black tracking-tight bg-gradient-to-r from-white via-cyan-100 to-[#00C2FF] bg-clip-text text-transparent">
               DIGITAL ECONOMY COMMAND CENTER
@@ -451,12 +448,11 @@ export default function App() {
           </div>
 
           {[
-            { id: 'tong-quan', label: 'Dashboard Song Song', icon: Layers, subtitle: 'Bộ Chỉ Huy 2 Tầng Tiêu Chí' },
-            { id: 'layer-1', label: 'Tầng 1: Chuẩn CĐS 2.0', icon: ShieldCheck, subtitle: `DEI ${activeMetrics.layer1.deiScore}% (Kinh tế & Xã hội)` },
+            { id: 'layer-1', label: 'Tầng 1: Tiêu chí Chuyển đổi số Phường Xã 2.0', icon: ShieldCheck, subtitle: `DEI ${activeMetrics.layer1.deiScore}% (Kinh tế & Xã hội)` },
             { id: 'layer-2', label: 'Tầng 2: Hệ sinh thái Kinh tế số', icon: Building2, subtitle: '5 nhóm A-E khai thác từ Nền tảng' },
-            { id: 'layer-3', label: 'Tầng 3: Hệ Sinh Thái Tổng', icon: Landmark, subtitle: 'Giáo dục, Y tế, Nông nghiệp' },
-            { id: 'layer-4', label: 'Tầng 4: CĐS Doanh Nghiệp', icon: Briefcase, subtitle: 'HKD, SME, Doanh nghiệp AI' },
-            { id: 'layer-5', label: 'Tầng 5: O2O & Hub Xanh', icon: Network, subtitle: 'Điểm bán Xanh, Doanh thu' },
+            { id: 'layer-3', label: 'Tầng 3: Hệ sinh thái Toàn diện', icon: Landmark, subtitle: 'Giáo dục, Y tế, Nông nghiệp' },
+            { id: 'layer-4', label: 'Tầng 4: Chuyển đổi số Doanh nghiệp', icon: Briefcase, subtitle: 'HKD, SME, Doanh nghiệp AI' },
+            { id: 'layer-5', label: 'Tầng 5: Mạng lưới Hub Xanh O2O', icon: Network, subtitle: 'Điểm bán Xanh, Doanh thu' },
             { id: 'ai-command-center', label: 'Trợ lý AI Điều Hành', icon: Bot, isNew: true },
           ].map((item) => {
             const IconComponent = item.icon;
@@ -493,156 +489,6 @@ export default function App() {
 
         {/* Content Area */}
         <main className="flex-1 p-6 overflow-y-auto max-w-full flex flex-col gap-6">
-
-          {/* TAB 1: COCKPIT SONG SONG TỔNG QUAN */}
-          {activeTab === 'tong-quan' && (
-            <>
-              {/* Feature 1: AI Scan */}
-              <div className="bg-[#0C213A] border border-cyan-500/20 rounded-3xl p-5 flex flex-col lg:flex-row items-start lg:items-center justify-between gap-6">
-                <div className="space-y-1.5 flex-1">
-                  <span className="text-[10px] bg-cyan-500/20 text-cyan-300 px-2.5 py-0.5 rounded-full border border-cyan-500/30 font-bold uppercase tracking-wider">
-                    ✨ Gemini LLM Engine
-                  </span>
-                  <h2 className="text-xl font-black text-white">✨ AI QUÉT & PHÂN TÍCH MÂU THUẪN LIÊN TẦNG DỮ LIỆU</h2>
-                  <p className="text-xs text-slate-300 leading-relaxed max-w-2xl">
-                    Quét tự động điểm mâu thuẫn giữa Tầng tiêu chí 2.0 (Dân sự) và Tầng hệ sinh thái mở rộng từ Nền tảng Web, đề xuất hành động.
-                  </p>
-                </div>
-                <button onClick={handleDeepScan} disabled={aiIsLoading} className="bg-cyan-500 hover:bg-cyan-600 transition-all text-slate-900 font-bold text-xs px-5 py-3 rounded-xl flex items-center gap-1.5 disabled:opacity-50">
-                  <Bot className="h-4.5 w-4.5" /> <span>✨ AI QUÉT CẢNH BÁO</span>
-                </button>
-              </div>
-
-              {deepScanResult && (
-                <div className="bg-[#0A2540] border border-cyan-500/25 rounded-2xl p-5 text-xs leading-relaxed text-slate-100 flex flex-col md:flex-row gap-4 justify-between items-start animate-in fade-in">
-                  <div className="flex-1 whitespace-pre-wrap">{deepScanResult}</div>
-                  <div className="flex flex-col gap-2 shrink-0">
-                    <button onClick={() => handlePlayTTS(deepScanResult)} className={`flex items-center gap-1.5 px-4 py-2 rounded-xl text-xs font-bold transition-all border ${isPlayingBriefing ? 'bg-rose-500/10 border-rose-500/30 text-rose-400' : 'bg-cyan-500/10 border-cyan-500/30 text-cyan-400'}`}>
-                      {isPlayingBriefing ? <VolumeX className="h-4 w-4" /> : <Volume2 className="h-4 w-4" />} <span>{isPlayingBriefing ? 'Dừng đọc' : 'Nghe Thuyết Minh AI'}</span>
-                    </button>
-                  </div>
-                </div>
-              )}
-
-              {/* Parallel Indicator Cards */}
-              <section className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-                <div className="bg-[#0A2540] border border-cyan-500/20 rounded-2xl p-4 flex flex-col justify-between">
-                  <div>
-                    <span className="text-[10px] text-slate-400 font-bold block uppercase tracking-wider">HẠ TẦNG DN SỐ (TẦNG 2 HST)</span>
-                    <div className="flex items-baseline gap-1 mt-2">
-                      <span className="text-3.5xl font-black text-indigo-400 font-mono">{activeMetrics.layer2.nhomA.digitalEnterprises.year}</span>
-                      <span className="text-sm text-slate-400">DN Lũy kế</span>
-                    </div>
-                  </div>
-                  <div className="mt-4 pt-2 border-t border-cyan-500/5 flex justify-between text-[11px] text-slate-300">
-                    <span>Trong tháng: +{activeMetrics.layer2.nhomA.digitalEnterprises.month} DN</span>
-                    <span className="text-emerald-400">Cloud lũy kế: {activeMetrics.layer2.nhomA.cloudEnterprises.year}</span>
-                  </div>
-                </div>
-
-                <div className="bg-[#0A2540] border border-cyan-500/20 rounded-2xl p-4 flex flex-col justify-between">
-                  <div>
-                    <span className="text-[10px] text-slate-400 font-bold block uppercase tracking-wider">ĐÀO TẠO NGUỒN LỰC (TẦNG 2 HST)</span>
-                    <div className="flex items-baseline gap-1 mt-2">
-                      <span className="text-3.5xl font-black text-amber-400 font-mono">{activeMetrics.layer2.nhomC.trainingCourses.year}</span>
-                      <span className="text-xs text-slate-400">Khóa Lũy kế</span>
-                    </div>
-                  </div>
-                  <div className="mt-4 pt-2 border-t border-cyan-500/5 flex justify-between text-[11px] font-bold">
-                    <span className={`flex items-center gap-1 ${activeMetrics.layer2.nhomC.trainingCourses.year === 0 ? 'text-rose-400' : 'text-slate-300'}`}>
-                      <AlertTriangle className="h-3.5 w-3.5" />
-                      Phát sinh tháng: +{activeMetrics.layer2.nhomC.trainingCourses.month}
-                    </span>
-                  </div>
-                </div>
-              </section>
-
-              {/* Parallel Drilldown Map & Radar */}
-              <section className="grid grid-cols-1 lg:grid-cols-12 gap-6">
-                <div className="lg:col-span-5 bg-[#0A2540] border border-cyan-500/10 rounded-2xl p-5 flex flex-col justify-between">
-                  <div>
-                    <div className="flex items-center justify-between mb-2">
-                      <h2 className="text-sm font-bold tracking-tight uppercase text-white flex items-center gap-2"><MapPin className="h-5 w-5 text-cyan-400" /> BẢN ĐỒ ĐỊA LÝ PHÂN KHU</h2>
-                    </div>
-                    <p className="text-xs text-slate-400 mb-3">Đo đạc nhiệt chuyển đổi số biển đảo. Click vào phân khu để xem chi tiết.</p>
-                  </div>
-                  <div className="relative w-full aspect-[4/3] bg-[#07111F] rounded-xl border border-cyan-500/10 p-4 flex items-center justify-center overflow-hidden my-2">
-                    <svg viewBox="0 0 400 300" className="w-full h-full max-h-[220px]">
-                      {KIENHAI_ZONES.map((zone) => (
-                        <g key={zone.id}>
-                          <circle cx={zone.id === 'hon-tre' ? 120 : zone.id === 'lai-son' ? 280 : zone.id === 'an-son' ? 115 : 235} cy={zone.id === 'hon-tre' ? 75 : zone.id === 'lai-son' ? 125 : zone.id === 'an-son' ? 200 : 220} r={zone.dei / 2} fill={zone.color} fillOpacity={selectedZone === zone.id ? '0.8' : '0.4'} stroke="#00C2FF" strokeWidth={selectedZone === zone.id ? '3' : '1'} className="cursor-pointer transition-all hover:fill-opacity-80" onClick={() => setSelectedZone(selectedZone === zone.id ? null : zone.id)} />
-                          <text x={zone.id === 'hon-tre' ? 120 : zone.id === 'lai-son' ? 280 : zone.id === 'an-son' ? 115 : 235} y={zone.id === 'hon-tre' ? 75 : zone.id === 'lai-son' ? 125 : zone.id === 'an-son' ? 200 : 220} fill="white" className="text-[9px] font-black pointer-events-none select-none" textAnchor="middle">{zone.name}</text>
-                        </g>
-                      ))}
-                    </svg>
-                  </div>
-                  <div className="text-xs text-slate-300 bg-[#122A4E]/20 p-2.5 rounded-lg border border-cyan-500/5">
-                    {selectedZone === null ? (
-                      <span><strong>Quần đảo An Sơn</strong> hiện có tiến độ số hóa thấp nhất (41%), đang gặp trở ngại hạ tầng.</span>
-                    ) : (
-                      <div>
-                        <strong>{KIENHAI_ZONES.find(z => z.id === selectedZone)?.name}</strong>: {KIENHAI_ZONES.find(z => z.id === selectedZone)?.desc}
-                        <div className="mt-1 flex justify-between font-mono text-[10px] text-cyan-400">
-                          <span>Doanh nghiệp: {KIENHAI_ZONES.find(z => z.id === selectedZone)?.enterprises}</span>
-                          <span>Chỉ số DEI: {KIENHAI_ZONES.find(z => z.id === selectedZone)?.dei}%</span>
-                        </div>
-                      </div>
-                    )}
-                  </div>
-                </div>
-
-                <div className="lg:col-span-7 bg-[#0A2540] border border-cyan-500/10 rounded-2xl p-5 flex flex-col justify-between">
-                  <div className="flex items-center justify-between mb-4 border-b border-cyan-500/10 pb-2">
-                    <h2 className="text-sm font-bold uppercase tracking-wider text-cyan-200">ĐỐI CHIẾU SONG HÀNH ĐA CHIỀU (TẦNG 1 VS TẦNG 2)</h2>
-                  </div>
-
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    {/* Layer 1 DEI */}
-                    <div className="bg-[#122A4E]/20 p-4 rounded-xl border border-cyan-500/5 flex flex-col items-center">
-                      <span className="text-[10px] text-slate-400 block uppercase font-bold text-center mb-3">Tầng 1: DEI Chuẩn 2.0</span>
-                      <div className="relative w-32 h-32 flex items-center justify-center">
-                        <svg className="w-full h-full transform -rotate-90">
-                          <circle cx="64" cy="64" r="50" fill="none" stroke="#122A4E" strokeWidth="10" />
-                          <circle cx="64" cy="64" r="50" fill="none" stroke="#00C2FF" strokeWidth="10" strokeDasharray={2 * Math.PI * 50} strokeDashoffset={2 * Math.PI * 50 * (1 - (activeMetrics.layer1.deiScore / 100))} strokeLinecap="round" />
-                        </svg>
-                        <div className="absolute flex flex-col items-center">
-                          <span className="text-2xl font-black font-mono text-white">{activeMetrics.layer1.deiScore}%</span>
-                        </div>
-                      </div>
-                    </div>
-
-                    {/* Layer 2 Radar */}
-                    <div className="bg-[#122A4E]/20 p-4 rounded-xl border border-cyan-500/5 flex flex-col items-center">
-                      <span className="text-[10px] text-slate-400 block uppercase font-bold text-center mb-3">Tầng 2: Hạ tầng & Sẵn sàng (Năm)</span>
-                      <div className="relative w-32 h-32 flex items-center justify-center">
-                        <svg viewBox="0 0 100 100" className="w-full h-full max-h-[110px]">
-                          <polygon points="50,10 90,50 50,90 10,50" fill="none" stroke="#1e293b" strokeWidth="0.5" />
-                          <text x="50" y="8" fill="#94a3b8" fontSize="4" textAnchor="middle">Doanh nghiệp</text>
-                          <text x="93" y="51" fill="#94a3b8" fontSize="4" textAnchor="start">Lên Cloud</text>
-                          <text x="50" y="96" fill="#94a3b8" fontSize="4" textAnchor="middle">Số hóa</text>
-                          <text x="7" y="51" fill="#94a3b8" fontSize="4" textAnchor="end">NetID</text>
-                          {(() => {
-                            const valDN = (activeMetrics.layer2.nhomA.digitalEnterprises.year / 250) * 40;
-                            const valCloud = (activeMetrics.layer2.nhomA.cloudEnterprises.year / 50) * 40;
-                            const valSoHoa = (activeMetrics.layer2.nhomA.comprehensiveDigital.year / 20) * 40;
-                            const valNetID = (activeMetrics.layer2.nhomA.netIdCards.year / 100) * 40;
-
-                            const ptDN = { x: 50, y: 50 - valDN };
-                            const ptCloud = { x: 50 + valCloud, y: 50 };
-                            const ptSoHoa = { x: 50, y: 50 + valSoHoa };
-                            const ptNetID = { x: 50 - valNetID, y: 50 };
-
-                            return <polygon points={`${ptDN.x},${ptDN.y} ${ptCloud.x},${ptCloud.y} ${ptSoHoa.x},${ptSoHoa.y} ${ptNetID.x},${ptNetID.y}`} fill="rgba(34, 197, 94, 0.5)" stroke="#22C55E" strokeWidth="1.5" />;
-                          })()}
-                        </svg>
-                      </div>
-                      <span className="text-[9px] text-slate-400 block mt-2 text-center">Nếu biểu đồ trống (T05/2026), vui lòng sang Tab Tầng 2 để Quét Web nạp dữ liệu.</span>
-                    </div>
-                  </div>
-                </div>
-              </section>
-            </>
-          )}
 
           {/* TAB 2: TẦNG 1 */}
           {activeTab === 'layer-1' && (
